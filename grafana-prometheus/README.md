@@ -18,14 +18,6 @@ kubectl apply -f grafana/
 
 ## Acesso
 
-Após o deploy, use um dos métodos abaixo:
-
-### Via minikube service (abre no browser automaticamente)
-```bash
-minikube service prometheus -n monitoring
-minikube service grafana -n monitoring
-```
-
 ### acesso kube_ip
 ```bash
 MINIKUBE_IP=$(minikube ip)
