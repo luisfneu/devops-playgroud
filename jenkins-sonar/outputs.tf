@@ -1,3 +1,23 @@
+output "sonarqube_namespace" {
+  description = "Namespace where SonarQube is deployed"
+  value       = kubernetes_namespace.sonarqube.metadata[0].name
+}
+
+output "sonarqube_access_command" {
+  description = "Command to access SonarQube via minikube"
+  value       = "minikube service sonarqube-sonarqube -n ${var.sonarqube_namespace}"
+}
+
+output "sonarqube_node_port" {
+  description = "NodePort assigned to SonarQube"
+  value       = var.sonarqube_node_port
+}
+
+output "sonarqube_url_hint" {
+  description = "How to get the SonarQube URL on minikube"
+  value       = "Run: minikube service sonarqube-sonarqube -n ${var.sonarqube_namespace} --url"
+}
+
 output "jenkins_namespace" {
   description = "Namespace where Jenkins is deployed"
   value       = kubernetes_namespace.jenkins.metadata[0].name
